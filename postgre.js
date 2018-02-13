@@ -1,6 +1,8 @@
 
 const { Pool, Client } = require('pg')
 
+const first_name = 'Bo';
+const last_name = 'Hu';
 const client = new Client({
   user: 'cxkztysabnllfi',
   host: 'ec2-50-16-231-2.compute-1.amazonaws.com',
@@ -11,7 +13,9 @@ const client = new Client({
 })
 client.connect()
 
-client.query('SELECT NOW()', (err, res) => {
-  console.log(res.rows[0])
+
+client.query(`insert into customer(first_name, last_name) values('${first_name}','${last_name}')`, (err, res) => {
+  //console.log(res.rows[0])
+  console.log(err);
   client.end()
 })
