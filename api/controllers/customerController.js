@@ -1,7 +1,7 @@
 'use strict';
 
 const { Pool, Client } = require('pg');
-const uuidv1 = require('uuid/v1');
+var uuidv4 = require('uuid/v4');
 
 const first_name = 'Bo';
 const last_name = 'Hu';
@@ -19,7 +19,7 @@ exports.create_a_customer = function(req, res) {
 
   try{
 
-    var receiptId =uuidv1(); // need to creat new column
+    var receiptId = uuidv4(); // need to creat new column
 
     var data = req.body;
     var id=parseInt(data.id);
