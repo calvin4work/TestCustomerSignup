@@ -107,7 +107,7 @@ exports.create_a_customer = function(req, res) {
         '${data_source}'
       )
       `, (err, res) => {
-      res.send(JSON.stringify(err));
+      res.send(JSON.stringify(err) + JSON.stringify(res) );
       client.end()
     })
 
