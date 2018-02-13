@@ -16,6 +16,7 @@ const client = new Client({
 exports.create_a_customer = function(req, res) {
 	console.log('create_a_customer');	
 
+  try{
     var data = req.body;
     var id=data.id;
     var first_name=data.first_name;
@@ -111,6 +112,16 @@ exports.create_a_customer = function(req, res) {
       client.end()
     })
 
+  }catch(er)
+  {
+
+    //console.log(res.rows[0])
+      res.send(JSON.stringify(er));
+      client.end()
+
+  }
+
+    
   	
     
 
