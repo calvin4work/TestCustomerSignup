@@ -12,7 +12,8 @@ routes(app); //register the route
 // app.get('/', (req, res) => {
 // 	res.send('Hello World!')
 // });
-
+ 
+ 
 app.listen(port, () => console.log(`Customer API listening on port ${port}`))
 
 // app.listen(port);
