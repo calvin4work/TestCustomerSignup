@@ -113,15 +113,15 @@ exports.create_a_customer = function(req, res) {
       )
       `, (err, res) => {
 
-      var result = {}
+      client.end()
+    })
+
+
+      var result = {};
       result.status = 'success';
       result.receiptId = receiptId;
 
       res.send(JSON.stringify(result));
-
-      client.end()
-    })
-
 
   }catch(er)
   {
