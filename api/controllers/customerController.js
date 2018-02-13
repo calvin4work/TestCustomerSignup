@@ -81,7 +81,8 @@ exports.create_a_customer = function(req, res) {
                   club,
                   reg_type,
                   identity_no,
-                  data_source) 
+                  data_source,
+                  receipt_id) 
       values(
         '${id}',
         '${first_name}',
@@ -109,7 +110,8 @@ exports.create_a_customer = function(req, res) {
         '${club}',
         '${reg_type}',
         '${identity_no}',
-        '${data_source}'
+        '${data_source}',
+        '${receiptId}'
       )
       `, (err, res) => {
 
