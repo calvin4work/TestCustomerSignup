@@ -1,128 +1,124 @@
 'use strict';
 
-// const { Pool, Client } = require('pg')
+const { Pool, Client } = require('pg')
 
-// const first_name = 'Bo';
-// const last_name = 'Hu';
-// const client = new Client({
-//   user: 'cxkztysabnllfi',
-//   host: 'ec2-50-16-231-2.compute-1.amazonaws.com',
-//   database: 'd7kouk9gs05vad',
-//   password: '117abd374371be13841690cc497114b1e16a6b8ba585a70b4724e171c0d23a44',
-//   port: 5432,
-//   ssl: true
-// })
+const first_name = 'Bo';
+const last_name = 'Hu';
+const client = new Client({
+  user: 'cxkztysabnllfi',
+  host: 'ec2-50-16-231-2.compute-1.amazonaws.com',
+  database: 'd7kouk9gs05vad',
+  password: '117abd374371be13841690cc497114b1e16a6b8ba585a70b4724e171c0d23a44',
+  port: 5432,
+  ssl: true
+})
 
 exports.create_a_customer = function(req, res) {
 	console.log('create_a_customer');	
 
-  res.send(JSON.stringify(req.body));
-      //client.end()
-
-  // try{
-  //   var data = req.body;
-  //   var id=data.id;
-  //   var first_name=data.first_name;
-  //   var last_name=data.last_name;
-  //   var first_store=data.first_store;
-  //   var email=data.email;
-  //   var email_optin=parseInt(data.email_optin);
-  //   var email_valid=parseInt(data.email_valid);
-  //   var gender=parseInt(data.gender);
-  //   var street=data.street;
-  //   var address_2=data.address_2;
-  //   var country=data.country;
-  //   var zip=parseInt(data.zip);
-  //   var city=data.city;
-  //   var birthday=data.birthday;
-  //   var age=data.age;
-  //   var phone_no=data.phone_no;
-  //   var mob=data.mob;
-  //   var mob_optin=data.parseInt(data.mob_optin);
-  //   var acc_country=data.acc_country;
-  //   var value_tier=data.value_tier;
-  //   var platinum=data.platinum;
-  //   var language=data.language;
-  //   var create_date=data.create_date;
-  //   var club=data.club;
-  //   var reg_type=data.reg_type;
-  //   var identity_no=data.identity_no;
-  //   var data_source=data.data_source;
+  try{
+    var data = req.body;
+    var id=data.id;
+    var first_name=data.first_name;
+    var last_name=data.last_name;
+    var first_store=data.first_store;
+    var email=data.email;
+    var email_optin=parseInt(data.email_optin);
+    var email_valid=parseInt(data.email_valid);
+    var gender=parseInt(data.gender);
+    var street=data.street;
+    var address_2=data.address_2;
+    var country=data.country;
+    var zip=parseInt(data.zip);
+    var city=data.city;
+    var birthday=data.birthday;
+    var age=data.age;
+    var phone_no=data.phone_no;
+    var mob=data.mob;
+    var mob_optin=data.parseInt(data.mob_optin);
+    var acc_country=data.acc_country;
+    var value_tier=data.value_tier;
+    var platinum=data.platinum;
+    var language=data.language;
+    var create_date=data.create_date;
+    var club=data.club;
+    var reg_type=data.reg_type;
+    var identity_no=data.identity_no;
+    var data_source=data.data_source;
 
 
-  //   client.connect()
+    client.connect()
 
 
-  //   client.query(`insert into customer(
-  //                 id,
-  //                 first_name,
-  //                 last_name,
-  //                 first_store,
-  //                 email,
-  //                 email_optin,
-  //                 email_valid,
-  //                 gender,
-  //                 street,
-  //                 address_2,
-  //                 country,
-  //                 zip,
-  //                 city,
-  //                 birthday,
-  //                 age,
-  //                 phone_no,
-  //                 mob,
-  //                 mob_optin,
-  //                 acc_country,
-  //                 value_tier,
-  //                 platinum,
-  //                 language,
-  //                 create_date,
-  //                 club,
-  //                 reg_type,
-  //                 identity_no,
-  //                 data_source) 
-  //     values('${id}',
-  //       '${first_name}',
-  //       '${last_name}',
-  //       '${first_store}',
-  //       '${email}',
-  //       '${email_optin}',
-  //       '${email_valid}',
-  //       '${gender}',
-  //       '${street}',
-  //       '${address_2}',
-  //       '${country}',
-  //       '${zip}',
-  //       '${city}',
-  //       '${birthday}',
-  //       '${age}',
-  //       '${phone_no}',
-  //       '${mob}',
-  //       '${mob_optin}',
-  //       '${acc_country}',
-  //       '${value_tier}',
-  //       '${platinum}',
-  //       '${language}',
-  //       '${create_date}',
-  //       '${club}',
-  //       '${reg_type}',
-  //       '${identity_no}',
-  //       '${data_source}'
-  //     )
-  //     `, (err, res) => {
-  //     //console.log(res.rows[0])
-  //     res.send(JSON.stringify(data));
-  //     client.end()
-  //   })
+    client.query(`insert into customer(
+                  id,
+                  first_name,
+                  last_name,
+                  first_store,
+                  email,
+                  email_optin,
+                  email_valid,
+                  gender,
+                  street,
+                  address_2,
+                  country,
+                  zip,
+                  city,
+                  birthday,
+                  age,
+                  phone_no,
+                  mob,
+                  mob_optin,
+                  acc_country,
+                  value_tier,
+                  platinum,
+                  language,
+                  create_date,
+                  club,
+                  reg_type,
+                  identity_no,
+                  data_source) 
+      values('${id}',
+        '${first_name}',
+        '${last_name}',
+        '${first_store}',
+        '${email}',
+        '${email_optin}',
+        '${email_valid}',
+        '${gender}',
+        '${street}',
+        '${address_2}',
+        '${country}',
+        '${zip}',
+        '${city}',
+        '${birthday}',
+        '${age}',
+        '${phone_no}',
+        '${mob}',
+        '${mob_optin}',
+        '${acc_country}',
+        '${value_tier}',
+        '${platinum}',
+        '${language}',
+        '${create_date}',
+        '${club}',
+        '${reg_type}',
+        '${identity_no}',
+        '${data_source}'
+      )
+      `, (err, res) => {
+      res.send(JSON.stringify(err));
+      client.end()
+    })
 
-  // }catch(er)
-  // {
+  }catch(er)
+  {
 
-  //   //console.log(res.rows[0])
-  //     res.send(JSON.stringify(er));
-  //     client.end()
+    //console.log(res.rows[0])
+      res.send(JSON.stringify(er));
+      client.end()
 
-  // }
+  }
 
     
   	
