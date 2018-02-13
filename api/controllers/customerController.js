@@ -3,8 +3,6 @@
 const { Pool, Client } = require('pg');
 var uuidv4 = require('uuid/v4');
 
-const first_name = 'Bo';
-const last_name = 'Hu';
 const client = new Client({
   user: 'cxkztysabnllfi',
   host: 'ec2-50-16-231-2.compute-1.amazonaws.com',
@@ -19,7 +17,7 @@ exports.create_a_customer = function(req, res) {
 
   try{
 
-    var receiptId = uuidv4(); // need to creat new column
+    var receiptId = uuidv4(); // need to creat new GUID
 
     var data = req.body;
     var id=parseInt(data.id);
