@@ -1,6 +1,7 @@
 'use strict';
 
-const { Pool, Client } = require('pg')
+const { Pool, Client } = require('pg');
+const uuidv1 = require('uuid/v1');
 
 const first_name = 'Bo';
 const last_name = 'Hu';
@@ -17,8 +18,11 @@ exports.create_a_customer = function(req, res) {
 	console.log('create_a_customer');	
 
   try{
+
+    var receiptId =uuidv1(); // need to creat new column
+
     var data = req.body;
-    var id=data.id;
+    var id=parseInt(data.id);
     var first_name=data.first_name;
     var last_name=data.last_name;
     var first_store=data.first_store;
@@ -35,7 +39,7 @@ exports.create_a_customer = function(req, res) {
     var age=data.age;
     var phone_no=data.phone_no;
     var mob=data.mob;
-    var mob_optin=data.parseInt(data.mob_optin);
+    var mob_optin=parseInt(data.mob_optin);
     var acc_country=data.acc_country;
     var value_tier=data.value_tier;
     var platinum=data.platinum;
@@ -78,7 +82,8 @@ exports.create_a_customer = function(req, res) {
                   reg_type,
                   identity_no,
                   data_source) 
-      values('${id}',
+      values(
+        '${id}',
         '${first_name}',
         '${last_name}',
         '${first_store}',
@@ -107,9 +112,16 @@ exports.create_a_customer = function(req, res) {
         '${data_source}'
       )
       `, (err, res) => {
-      res.send(JSON.stringify(err) + JSON.stringify(res) );
+
+      var result = {}
+      result.status = 'success';
+      result.receiptId = receiptId;
+
+      res.send(JSON.stringify(result));
+
       client.end()
     })
+
 
   }catch(er)
   {
