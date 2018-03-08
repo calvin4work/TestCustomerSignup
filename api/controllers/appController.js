@@ -5,7 +5,7 @@ const postgresql = require('../../das/PostgreSQLlib');
 const postgresql_client = new postgresql.default();
 
 exports.create_a_customer = function(req, res) {
-	console.log('create_a_customer');	
+	console.log('create_a_customer_test');	
 
   try{
 
